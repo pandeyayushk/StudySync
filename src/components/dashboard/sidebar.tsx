@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, Settings2, FileText, User, BookOpen, LogOut } from 'lucide-react'
+import { LayoutDashboard, Settings2, FileText, BookOpen, LogOut } from 'lucide-react'
 import { signOut } from '@/actions/auth'
 import { cn } from '@/lib/utils'
 
@@ -13,7 +13,6 @@ export function Sidebar() {
     { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { href: '/dashboard/setup', label: 'Setup', icon: Settings2 },
     { href: '/dashboard/plans', label: 'My Plans', icon: FileText },
-    { href: '/dashboard/settings', label: 'Settings', icon: User },
   ]
 
   return (

@@ -31,7 +31,7 @@ export default async function DashboardLayout({
         <Sidebar />
       </div>
       <div className="flex-1 flex flex-col min-w-0 pb-16 lg:pb-0">
-        <DashboardHeader userName={userName} />
+        <DashboardHeader userName={userName} userEmail={user.email} />
         <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-auto">
           {children}
         </main>
@@ -39,7 +39,7 @@ export default async function DashboardLayout({
 
       {/* Mobile Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 z-40 flex h-16 border-t border-slate-200 bg-white/95 backdrop-blur lg:hidden">
-        <div className="grid h-full w-full grid-cols-4 mx-auto">
+        <div className="grid h-full w-full grid-cols-3 mx-auto">
           <Link
             href="/dashboard"
             className="inline-flex flex-col items-center justify-center px-2 hover:bg-slate-50 text-slate-600 hover:text-violet-600 transition-colors"
@@ -60,13 +60,6 @@ export default async function DashboardLayout({
           >
             <FileText className="w-5 h-5 mb-1" />
             <span className="text-[10px] font-medium">Plans</span>
-          </Link>
-          <Link
-            href="/dashboard/settings"
-            className="inline-flex flex-col items-center justify-center px-2 hover:bg-slate-50 text-slate-600 hover:text-violet-600 transition-colors"
-          >
-            <User className="w-5 h-5 mb-1" />
-            <span className="text-[10px] font-medium">Settings</span>
           </Link>
         </div>
       </nav>
