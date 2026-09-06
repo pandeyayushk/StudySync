@@ -4,32 +4,65 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 210 40% 98%;
+    --foreground: 236 56% 25%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 236 56% 25%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 262.1 83.3% 57.8%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --popover-foreground: 236 56% 25%;
+    /* Primary deep cobalt: #2f39a9 */
+    --primary: 235 56% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 205 55% 94%;
+    --secondary-foreground: 235 56% 25%;
+    --muted: 205 40% 95%;
+    --muted-foreground: 205 30% 45%;
+    /* Accent vibrant turquoise: #15d8b3 */
+    --accent: 169 82% 46%;
+    --accent-foreground: 235 56% 15%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 262.1 83.3% 57.8%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 205 35% 89%;
+    --input: 205 35% 89%;
+    --ring: 235 56% 42%;
+    --radius: 0.75rem;
+    --chart-1: 235 56% 42%;
+    --chart-2: 205 55% 40%;
+    --chart-3: 193 44% 51%;
+    --chart-4: 169 82% 46%;
+    --chart-5: 236 56% 25%;
   }
+}
+
+/* 
+  Native Hardware-Accelerated Circular "SS" Cursor 
+  Calibrated to your Oceanic Blue-Teal Brand Palette
+*/
+
+/* Default State: Cobalt blue circle with bright teal dashed orbit ring and centered white SS */
+html,
+body {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%2315d8b3' stroke-width='1.5' stroke-dasharray='4,3' opacity='0.8'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%232f39a9' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ctext x='16' y='19.5' fill='%23ffffff' font-family='system-ui, -apple-system, sans-serif' font-size='9' font-weight='900' text-anchor='middle' letter-spacing='-0.5'%3ESS%3C/text%3E%3C/svg%3E") 16 16, auto;
+}
+
+/* Hover / Pointer State: Expanded glowing ocean teal/cobalt circle with active aura ring */
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+select,
+summary {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%2315d8b3' fill-opacity='0.25' stroke='%2315d8b3' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='11' fill='%2320297f' stroke='%23ffffff' stroke-width='2'/%3E%3Ctext x='16' y='20' fill='%23ffffff' font-family='system-ui, -apple-system, sans-serif' font-size='10' font-weight='900' text-anchor='middle' letter-spacing='-0.5'%3ESS%3C/text%3E%3C/svg%3E") 16 16, pointer;
+}
+
+/* Typing / Input State: Keep clean text caret */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+textarea {
+  cursor: text;
 }
 
 @layer base {

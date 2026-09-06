@@ -30,14 +30,18 @@ export default async function SetupPage() {
   return (
     <div className="max-w-4xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Setup & Settings</h1>
-        <p className="text-slate-500">Manage your cycle information and exams</p>
+        <h1 className="text-3xl font-bold tracking-tight text-white">Setup & Settings</h1>
+        <p className="text-slate-400 mt-1">Manage your cycle information and exams</p>
       </div>
 
       <Tabs defaultValue="cycle" className="w-full">
-        <TabsList className="mb-4">
-          <TabsTrigger value="cycle">Cycle Info</TabsTrigger>
-          <TabsTrigger value="exams">Exams</TabsTrigger>
+        <TabsList className="mb-4 bg-slate-900/80 border border-slate-800 p-1">
+          <TabsTrigger value="cycle" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#2f39a9] data-[state=active]:to-[#2e6fa0] data-[state=active]:text-white text-slate-300">
+            Cycle Info
+          </TabsTrigger>
+          <TabsTrigger value="exams" className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-[#2f39a9] data-[state=active]:to-[#2e6fa0] data-[state=active]:text-white text-slate-300">
+            Exams
+          </TabsTrigger>
         </TabsList>
         
         <TabsContent value="cycle" className="space-y-4">

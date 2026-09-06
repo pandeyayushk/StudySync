@@ -1,7 +1,7 @@
 import { Exam } from '@/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Calendar, Trash2 } from 'lucide-react'
+import { Calendar } from 'lucide-react'
 import { format, differenceInDays, isPast } from 'date-fns'
 
 interface ExamListProps {
@@ -11,19 +11,19 @@ interface ExamListProps {
 export function ExamList({ exams }: ExamListProps) {
   if (!exams || exams.length === 0) {
     return (
-      <Card className="border-slate-200 shadow-sm h-full flex flex-col">
-        <CardHeader className="pb-3 border-b border-slate-100 bg-slate-50/50">
-          <CardTitle className="text-lg font-semibold flex items-center gap-2">
-            <Calendar className="w-5 h-5 text-slate-500" />
+      <Card className="border-slate-800 bg-[#0c1222]/90 backdrop-blur shadow-xl h-full flex flex-col">
+        <CardHeader className="pb-3 border-b border-slate-800/80 bg-slate-900/40">
+          <CardTitle className="text-lg font-semibold flex items-center gap-2 text-white">
+            <Calendar className="w-5 h-5 text-[#15d8b3]" />
             Upcoming Exams
           </CardTitle>
         </CardHeader>
         <CardContent className="flex-1 flex flex-col items-center justify-center py-8 text-center px-4">
-          <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-3">
-            <Calendar className="w-6 h-6 text-slate-400" />
+          <div className="w-12 h-12 bg-slate-800/80 rounded-full flex items-center justify-center mb-3 text-[#15d8b3]">
+            <Calendar className="w-6 h-6" />
           </div>
-          <p className="text-slate-600 font-medium mb-1">No upcoming exams</p>
-          <p className="text-sm text-slate-500">Add exams in Setup to get tailored plans.</p>
+          <p className="text-slate-200 font-medium mb-1">No upcoming exams</p>
+          <p className="text-sm text-slate-400">Add exams in Setup to get tailored plans.</p>
         </CardContent>
       </Card>
     )
@@ -36,37 +36,37 @@ export function ExamList({ exams }: ExamListProps) {
 
   const getPriorityColor = (priority: string) => {
     switch (priority) {
-      case 'high': return 'bg-red-100 text-red-700'
-      case 'medium': return 'bg-amber-100 text-amber-700'
-      case 'low': return 'bg-emerald-100 text-emerald-700'
-      default: return 'bg-slate-100 text-slate-700'
+      case 'high': return 'bg-rose-500/20 text-rose-300 border border-rose-500/30'
+      case 'medium': return 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+      case 'low': return 'bg-[#15d8b3]/20 text-[#15d8b3] border border-[#15d8b3]/30'
+      default: return 'bg-slate-700/40 text-slate-300 border border-slate-700'
     }
   }
 
   return (
-    <Card className="border-slate-200 shadow-sm h-full flex flex-col">
-      <CardHeader className="pb-3 border-b border-slate-100 bg-slate-50/50">
-        <CardTitle className="text-lg font-semibold flex items-center gap-2">
-          <Calendar className="w-5 h-5 text-slate-500" />
+    <Card className="border-slate-800 bg-[#0c1222]/90 backdrop-blur shadow-xl h-full flex flex-col">
+      <CardHeader className="pb-3 border-b border-slate-800/80 bg-slate-900/40">
+        <CardTitle className="text-lg font-semibold flex items-center gap-2 text-white">
+          <Calendar className="w-5 h-5 text-[#15d8b3]" />
           Upcoming Exams
         </CardTitle>
       </CardHeader>
       <CardContent className="p-0 overflow-y-auto max-h-[400px]">
-        <ul className="divide-y divide-slate-100">
+        <ul className="divide-y divide-slate-800/80">
           {sortedExams.map((exam) => {
             const examDate = new Date(exam.exam_date)
             const daysUntil = differenceInDays(examDate, new Date())
             const isOver = isPast(examDate) && daysUntil < 0
             
             return (
-              <li key={exam.id} className="p-4 hover:bg-slate-50 transition-colors">
+              <li key={exam.id} className="p-4 hover:bg-slate-800/30 transition-colors">
                 <div className="flex items-start justify-between gap-3">
                   <div className="min-w-0 flex-1">
-                    <h4 className="font-semibold text-slate-900 truncate pr-2">{exam.subject}</h4>
-                    <p className="text-sm text-slate-500 mt-1 flex items-center gap-1.5">
+                    <h4 className="font-semibold text-white truncate pr-2">{exam.subject}</h4>
+                    <p className="text-sm text-slate-400 mt-1 flex items-center gap-1.5">
                       {format(examDate, 'MMM d, yyyy')}
-                      <span className="text-slate-300">•</span>
-                      <span className={`font-medium ${isOver ? 'text-slate-400' : daysUntil <= 7 ? 'text-red-600' : 'text-violet-600'}`}>
+                      <span className="text-slate-600">•</span>
+                      <span className={`font-medium ${isOver ? 'text-slate-500' : daysUntil <= 7 ? 'text-rose-400' : 'text-[#15d8b3]'}`}>
                         {isOver ? 'Passed' : daysUntil === 0 ? 'Today!' : `In ${daysUntil} day${daysUntil === 1 ? '' : 's'}`}
                       </span>
                     </p>
@@ -76,7 +76,7 @@ export function ExamList({ exams }: ExamListProps) {
                   </Badge>
                 </div>
                 {exam.notes && (
-                  <p className="text-xs text-slate-500 mt-2 bg-slate-100 p-2 rounded-md line-clamp-2">
+                  <p className="text-xs text-slate-400 mt-2 bg-slate-900/60 p-2 rounded-md line-clamp-2 border border-slate-800/60">
                     {exam.notes}
                   </p>
                 )}

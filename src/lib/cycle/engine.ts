@@ -27,11 +27,11 @@ export function getPhaseInfo(phase: CyclePhase): PhaseInfo {
       return {
         phase: 'menstruation',
         label: 'Menstruation',
-        color: 'text-rose-600',
-        bgColor: 'bg-rose-50',
-        borderColor: 'border-rose-200',
+        color: 'text-teal-400',
+        bgColor: 'bg-[#15d8b3]/10',
+        borderColor: 'border-[#15d8b3]/30',
         emoji: '🌙',
-        description: 'Rest & gentle review phase',
+        description: 'Rest & gentle review phase. Low physical stamina, high reflection.',
         focusDuration: 20,
         breakDuration: 5,
         studyTips: [
@@ -45,11 +45,11 @@ export function getPhaseInfo(phase: CyclePhase): PhaseInfo {
       return {
         phase: 'follicular',
         label: 'Follicular',
-        color: 'text-emerald-600',
-        bgColor: 'bg-emerald-50',
-        borderColor: 'border-emerald-200',
+        color: 'text-[#15d8b3]',
+        bgColor: 'bg-[#15d8b3]/15',
+        borderColor: 'border-[#15d8b3]/40',
         emoji: '🌱',
-        description: 'Peak learning & new concepts',
+        description: 'Peak neuroplasticity & curiosity. Your brain is primed for hard concepts.',
         focusDuration: 50,
         breakDuration: 10,
         studyTips: [
@@ -63,11 +63,11 @@ export function getPhaseInfo(phase: CyclePhase): PhaseInfo {
       return {
         phase: 'ovulation',
         label: 'Ovulation',
-        color: 'text-amber-600',
-        bgColor: 'bg-amber-50',
-        borderColor: 'border-amber-200',
+        color: 'text-[#49a4bb]',
+        bgColor: 'bg-[#49a4bb]/15',
+        borderColor: 'border-[#49a4bb]/40',
         emoji: '☀️',
-        description: 'High focus & performance',
+        description: 'Peak energy, verbal fluency & confidence. Ideal for mock exams & teaching.',
         focusDuration: 50,
         breakDuration: 10,
         studyTips: [
@@ -81,11 +81,11 @@ export function getPhaseInfo(phase: CyclePhase): PhaseInfo {
       return {
         phase: 'luteal',
         label: 'Luteal',
-        color: 'text-sky-600',
-        bgColor: 'bg-sky-50',
-        borderColor: 'border-sky-200',
+        color: 'text-[#60a5fa]',
+        bgColor: 'bg-[#2e6fa0]/20',
+        borderColor: 'border-[#2e6fa0]/40',
         emoji: '🌊',
-        description: 'Consolidation & revision',
+        description: 'Consolidation, organization & detail orientation. Perfect for error logs.',
         focusDuration: 25,
         breakDuration: 5,
         studyTips: [

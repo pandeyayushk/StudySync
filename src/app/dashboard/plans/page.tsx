@@ -51,8 +51,8 @@ export default async function PlansPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Study Plans History</h1>
-        <p className="text-slate-500">Review your past and current study plans</p>
+        <h1 className="text-3xl font-bold tracking-tight text-white">Study Plans History</h1>
+        <p className="text-slate-400 mt-1">Review your past and current study plans</p>
       </div>
 
       <PlansClient initialPlans={formattedPlans as any} />

@@ -59,13 +59,13 @@ export function ProfileForm({ defaultValues }: ProfileFormProps) {
   }
 
   return (
-    <Card className="border-slate-200 shadow-sm">
-      <CardHeader className="bg-slate-50/50 border-b border-slate-100">
-        <CardTitle className="flex items-center gap-2 text-xl">
-          <User className="w-5 h-5 text-blue-500" />
+    <Card className="border-slate-800 bg-[#0c1222]/90 backdrop-blur shadow-xl">
+      <CardHeader className="bg-slate-900/40 border-b border-slate-800/80">
+        <CardTitle className="flex items-center gap-2 text-xl text-white">
+          <User className="w-5 h-5 text-[#15d8b3]" />
           Profile Settings
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-slate-400">
           Manage your personal information and preferences.
         </CardDescription>
       </CardHeader>
@@ -73,22 +73,24 @@ export function ProfileForm({ defaultValues }: ProfileFormProps) {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="fullName">Full Name</Label>
+              <Label htmlFor="fullName" className="text-slate-200">Full Name</Label>
               <Input 
                 id="fullName" 
                 placeholder="Jane Doe"
                 {...register("fullName")} 
-                className={errors.fullName ? "border-red-500" : ""}
+                className={`bg-slate-900/60 border-slate-800 text-white focus-visible:ring-[#15d8b3] ${errors.fullName ? "border-red-500" : ""}`}
               />
               {errors.fullName && (
-                <p className="text-sm text-red-500 font-medium">{errors.fullName.message}</p>
+                <p className="text-sm text-red-400 font-medium">{errors.fullName.message}</p>
               )}
             </div>
-            
-            {/* Email is typically read-only or handled separately with Auth, so omitted or can be added as disabled */}
           </div>
           
-          <Button type="submit" disabled={isPending} className="w-full sm:w-auto bg-slate-900 hover:bg-slate-800">
+          <Button 
+            type="submit" 
+            disabled={isPending} 
+            className="w-full sm:w-auto bg-gradient-to-r from-[#2f39a9] to-[#2e6fa0] hover:opacity-90 text-white shadow-lg shadow-[#2f39a9]/25 font-semibold"
+          >
             {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Save Profile
           </Button>

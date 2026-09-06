@@ -15,7 +15,7 @@ export function PhaseIndicator({ phaseInfo, cycleDay, cycleLength, daysUntilNext
   const progressPercentage = Math.min(100, Math.max(0, (cycleDay / cycleLength) * 100))
 
   return (
-    <Card className={`overflow-hidden border-0 shadow-sm ${phaseInfo.bgColor} ${phaseInfo.borderColor} border`}>
+    <Card className={`overflow-hidden border shadow-xl bg-[#0c1222]/90 backdrop-blur border-slate-800`}>
       <CardContent className="p-6">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
@@ -27,27 +27,27 @@ export function PhaseIndicator({ phaseInfo, cycleDay, cycleLength, daysUntilNext
                 {phaseInfo.label}
               </h2>
             </div>
-            <p className="text-slate-700 font-medium">Day {cycleDay} of your cycle</p>
+            <p className="text-slate-300 font-medium">Day {cycleDay} of your cycle</p>
           </div>
-          <Badge variant="outline" className={`bg-white/50 border-0 shadow-sm text-sm py-1 px-3 ${phaseInfo.color}`}>
+          <Badge variant="outline" className={`bg-[#15d8b3]/10 border border-[#15d8b3]/30 shadow-sm text-sm py-1 px-3 text-[#15d8b3] font-semibold`}>
             {daysUntilNextPhase} days until next phase
           </Badge>
         </div>
 
         <div className="space-y-4">
-          <p className="text-slate-600 leading-relaxed max-w-3xl">
+          <p className="text-slate-300 leading-relaxed max-w-3xl">
             {phaseInfo.description}
           </p>
           
           <div className="pt-2">
-            <div className="flex justify-between text-xs text-slate-500 mb-1.5 font-medium">
+            <div className="flex justify-between text-xs text-slate-400 mb-1.5 font-medium">
               <span>Cycle Start</span>
               <span>Next Phase</span>
             </div>
             <Progress 
               value={progressPercentage} 
-              className={`h-2 bg-white/60`} 
-              indicatorClassName={`${phaseInfo.color.replace('text-', 'bg-')}`} 
+              className="h-2.5 bg-slate-800" 
+              indicatorClassName="bg-gradient-to-r from-[#2f39a9] via-[#2e6fa0] to-[#15d8b3]" 
             />
           </div>
         </div>

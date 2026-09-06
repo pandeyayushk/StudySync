@@ -80,33 +80,26 @@ export function PomodoroTimer({ focusDuration, breakDuration, phaseInfo }: Pomod
     return `${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`
   }
 
-  // Explicit mapping for reliable Tailwind JIT compilation
-  const phaseButtonClasses: Record<string, string> = {
-    menstruation: 'bg-rose-600 hover:bg-rose-700 text-white',
-    follicular: 'bg-emerald-600 hover:bg-emerald-700 text-white',
-    ovulation: 'bg-amber-600 hover:bg-amber-700 text-white',
-    luteal: 'bg-sky-600 hover:bg-sky-700 text-white',
-  }
-
+  // Consistent brand palette button styling
   const buttonClass = isBreak
-    ? 'bg-emerald-600 hover:bg-emerald-700 text-white'
-    : phaseButtonClasses[phaseInfo.phase] || 'bg-violet-600 hover:bg-violet-700 text-white'
+    ? 'bg-[#15d8b3] hover:bg-[#12be9d] text-[#070b19] font-bold shadow-lg shadow-[#15d8b3]/25'
+    : 'bg-gradient-to-r from-[#2f39a9] to-[#2e6fa0] hover:opacity-90 text-white shadow-lg shadow-[#2f39a9]/30'
 
   return (
-    <Card className="border-slate-200 shadow-sm overflow-hidden">
-      <CardContent className={`p-8 flex flex-col items-center justify-center transition-colors duration-500 ${isBreak ? 'bg-emerald-50/50' : 'bg-slate-50/50'}`}>
-        <div className="flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-white border border-slate-200 shadow-sm">
+    <Card className="border-slate-800 bg-[#0c1222]/90 backdrop-blur shadow-xl overflow-hidden">
+      <CardContent className={`p-8 flex flex-col items-center justify-center transition-colors duration-500 ${isBreak ? 'bg-[#15d8b3]/5' : 'bg-transparent'}`}>
+        <div className="flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-slate-900/90 border border-slate-700/60 shadow-inner">
           {isBreak ? (
-            <Coffee className="w-4 h-4 text-emerald-500" />
+            <Coffee className="w-4 h-4 text-[#15d8b3]" />
           ) : (
             <Brain className={`w-4 h-4 ${phaseInfo.color}`} />
           )}
-          <span className="text-sm font-medium text-slate-700">
+          <span className="text-sm font-medium text-slate-200">
             {isBreak ? 'Break Time' : 'Focus Time'}
           </span>
         </div>
 
-        <div className={`text-6xl sm:text-7xl font-bold font-mono tabular-nums mb-8 tracking-tighter ${isBreak ? 'text-emerald-700' : 'text-slate-800'}`}>
+        <div className={`text-6xl sm:text-7xl font-bold font-mono tabular-nums mb-8 tracking-tighter ${isBreak ? 'text-[#15d8b3]' : 'text-white'}`}>
           {formatTime(timeLeft)}
         </div>
 
@@ -114,7 +107,7 @@ export function PomodoroTimer({ focusDuration, breakDuration, phaseInfo }: Pomod
           <Button 
             variant="outline" 
             size="icon" 
-            className="w-12 h-12 rounded-full border-slate-300 text-slate-600 hover:bg-slate-100"
+            className="w-12 h-12 rounded-full border-slate-700 bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white"
             onClick={resetTimer}
             title="Reset"
           >
@@ -123,7 +116,7 @@ export function PomodoroTimer({ focusDuration, breakDuration, phaseInfo }: Pomod
           
           <Button 
             size="icon" 
-            className={`w-16 h-16 rounded-full shadow-md ${buttonClass}`}
+            className={`w-16 h-16 rounded-full ${buttonClass}`}
             onClick={toggleTimer}
           >
             {isRunning ? (
@@ -136,7 +129,7 @@ export function PomodoroTimer({ focusDuration, breakDuration, phaseInfo }: Pomod
           <Button 
             variant="outline" 
             size="icon" 
-            className="w-12 h-12 rounded-full border-slate-300 text-slate-600 hover:bg-slate-100"
+            className="w-12 h-12 rounded-full border-slate-700 bg-slate-800/80 text-slate-300 hover:bg-slate-700 hover:text-white"
             onClick={skipSession}
             title="Skip"
           >
@@ -144,8 +137,8 @@ export function PomodoroTimer({ focusDuration, breakDuration, phaseInfo }: Pomod
           </Button>
         </div>
 
-        <p className="text-sm text-slate-500 font-medium">
-          Sessions completed today: <span className="text-slate-800 font-bold">{sessionsCompleted}</span>
+        <p className="text-sm text-slate-400 font-medium">
+          Sessions completed today: <span className="text-[#15d8b3] font-bold">{sessionsCompleted}</span>
         </p>
       </CardContent>
     </Card>

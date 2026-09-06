@@ -41,7 +41,7 @@ export function SignInForm({ mode }: SignInFormProps) {
   return (
     <Card className="w-full max-w-md mx-auto shadow-xl border-0 ring-1 ring-slate-100">
       <CardHeader className="space-y-2 text-center pb-8 pt-10">
-        <CardTitle className="text-3xl font-bold tracking-tight text-slate-900">
+        <CardTitle className="text-3xl font-bold tracking-tight text-[#1e2474]">
           {isSignUp ? "Create an account" : "Welcome back"}
         </CardTitle>
         <CardDescription className="text-base text-slate-500">
@@ -73,7 +73,7 @@ export function SignInForm({ mode }: SignInFormProps) {
                 type="email" 
                 placeholder="m@example.com" 
                 required 
-                className="pl-10 h-11"
+                className="pl-10 h-11 focus-visible:ring-[#2f39a9]"
               />
             </div>
           </div>
@@ -82,7 +82,7 @@ export function SignInForm({ mode }: SignInFormProps) {
             <div className="flex items-center justify-between">
               <Label htmlFor="password">Password</Label>
               {!isSignUp && (
-                <Link href="#" className="text-sm font-medium text-violet-600 hover:text-violet-500">
+                <Link href="#" className="text-sm font-medium text-[#2e6fa0] hover:text-[#2f39a9]">
                   Forgot password?
                 </Link>
               )}
@@ -94,7 +94,7 @@ export function SignInForm({ mode }: SignInFormProps) {
                 name="password"
                 type={showPassword ? "text" : "password"} 
                 required 
-                className="pl-10 pr-10 h-11"
+                className="pl-10 pr-10 h-11 focus-visible:ring-[#2f39a9]"
               />
               <button
                 type="button"
@@ -116,7 +116,7 @@ export function SignInForm({ mode }: SignInFormProps) {
                   name="confirmPassword"
                   type={showPassword ? "text" : "password"} 
                   required 
-                  className="pl-10 h-11"
+                  className="pl-10 h-11 focus-visible:ring-[#2f39a9]"
                 />
               </div>
             </div>
@@ -124,7 +124,7 @@ export function SignInForm({ mode }: SignInFormProps) {
 
           <Button 
             type="submit" 
-            className="w-full h-11 bg-violet-600 hover:bg-violet-700 text-white font-medium text-base mt-2" 
+            className="w-full h-11 bg-gradient-to-r from-[#2f39a9] via-[#2e6fa0] to-[#15d8b3] hover:opacity-95 text-white font-medium text-base mt-2 shadow-md shadow-[#2f39a9]/20 transition-all hover:shadow-lg" 
             disabled={isPending}
           >
             {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -138,7 +138,7 @@ export function SignInForm({ mode }: SignInFormProps) {
           {isSignUp ? "Already have an account? " : "Don't have an account? "}
           <Link 
             href={isSignUp ? "/sign-in" : "/sign-up"} 
-            className="font-semibold text-violet-600 hover:text-violet-500 transition-colors"
+            className="font-semibold text-[#2f39a9] hover:text-[#2e6fa0] transition-colors"
           >
             {isSignUp ? "Sign In" : "Sign Up"}
           </Link>

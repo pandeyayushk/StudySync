@@ -1,9 +1,8 @@
 import { redirect } from 'next/navigation'
 import { createClient } from '@/lib/supabase/server'
-import { Sidebar } from '@/components/dashboard/sidebar'
 import { Header as DashboardHeader } from '@/components/dashboard/header'
 import Link from 'next/link'
-import { LayoutDashboard, Settings2, FileText, User } from 'lucide-react'
+import { LayoutDashboard, Settings2, FileText } from 'lucide-react'
 
 export default async function DashboardLayout({
   children,
@@ -26,19 +25,17 @@ export default async function DashboardLayout({
   const userName = profile?.full_name || user.email?.split('@')[0] || 'User'
 
   return (
-    <div className="flex min-h-screen bg-slate-50">
-      <div className="hidden lg:block w-64 flex-shrink-0">
-        <Sidebar />
-      </div>
-      <div className="flex-1 flex flex-col min-w-0 pb-16 lg:pb-0">
-        <DashboardHeader userName={userName} userEmail={user.email} />
-        <main className="flex-1 p-4 md:p-6 lg:p-8 overflow-auto">
-          {children}
-        </main>
-      </div>
+    <div className="min-h-screen bg-slate-50 flex flex-col">
+      {/* Fixed top header navbar - stays visible while scrolling */}
+      <DashboardHeader userName={userName} userEmail={user.email} />
 
-      {/* Mobile Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 z-40 flex h-16 border-t border-slate-200 bg-white/95 backdrop-blur lg:hidden">
+      {/* Main page content with top padding for fixed header and bottom padding for mobile bar */}
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-20 md:pb-12">
+        {children}
+      </main>
+
+      {/* Mobile Bottom Navigation (for small screens) */}
+      <nav className="fixed bottom-0 left-0 right-0 z-40 flex h-16 border-t border-slate-200 bg-white/95 backdrop-blur md:hidden">
         <div className="grid h-full w-full grid-cols-3 mx-auto">
           <Link
             href="/dashboard"

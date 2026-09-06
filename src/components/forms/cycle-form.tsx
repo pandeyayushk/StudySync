@@ -60,13 +60,13 @@ export function CycleForm({ defaultValues }: CycleFormProps) {
   }
 
   return (
-    <Card className="border-slate-200 shadow-sm">
-      <CardHeader className="bg-slate-50/50 border-b border-slate-100">
-        <CardTitle className="flex items-center gap-2 text-xl">
-          <Activity className="w-5 h-5 text-rose-500" />
+    <Card className="border-slate-800 bg-[#0c1222]/90 backdrop-blur shadow-xl">
+      <CardHeader className="bg-slate-900/40 border-b border-slate-800/80">
+        <CardTitle className="flex items-center gap-2 text-xl text-white">
+          <Activity className="w-5 h-5 text-[#15d8b3]" />
           Cycle Settings
         </CardTitle>
-        <CardDescription>
+        <CardDescription className="text-slate-400">
           Enter your basic cycle information to personalize your study plans.
         </CardDescription>
       </CardHeader>
@@ -74,36 +74,40 @@ export function CycleForm({ defaultValues }: CycleFormProps) {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
             <div className="space-y-2">
-              <Label htmlFor="lastPeriodDate">First day of last period</Label>
+              <Label htmlFor="lastPeriodDate" className="text-slate-200">First day of last period</Label>
               <Input 
                 id="lastPeriodDate" 
                 type="date" 
                 {...register("lastPeriodDate")} 
-                className={errors.lastPeriodDate ? "border-red-500" : ""}
+                className={`bg-slate-900/60 border-slate-800 text-white focus-visible:ring-[#15d8b3] ${errors.lastPeriodDate ? "border-red-500" : ""}`}
               />
               {errors.lastPeriodDate && (
-                <p className="text-sm text-red-500 font-medium">{errors.lastPeriodDate.message}</p>
+                <p className="text-sm text-red-400 font-medium">{errors.lastPeriodDate.message}</p>
               )}
             </div>
             
             <div className="space-y-2">
-              <Label htmlFor="averageCycleLength">Average cycle length (days)</Label>
+              <Label htmlFor="averageCycleLength" className="text-slate-200">Average cycle length (days)</Label>
               <Input 
                 id="averageCycleLength" 
                 type="number" 
                 min={21} 
                 max={45} 
                 {...register("averageCycleLength", { valueAsNumber: true })} 
-                className={errors.averageCycleLength ? "border-red-500" : ""}
+                className={`bg-slate-900/60 border-slate-800 text-white focus-visible:ring-[#15d8b3] ${errors.averageCycleLength ? "border-red-500" : ""}`}
               />
-              <p className="text-xs text-slate-500">Typically between 21 and 35 days.</p>
+              <p className="text-xs text-slate-400">Typically between 21 and 35 days.</p>
               {errors.averageCycleLength && (
-                <p className="text-sm text-red-500 font-medium">{errors.averageCycleLength.message}</p>
+                <p className="text-sm text-red-400 font-medium">{errors.averageCycleLength.message}</p>
               )}
             </div>
           </div>
           
-          <Button type="submit" disabled={isPending} className="w-full bg-violet-600 hover:bg-violet-700">
+          <Button 
+            type="submit" 
+            disabled={isPending} 
+            className="w-full bg-gradient-to-r from-[#2f39a9] via-[#2e6fa0] to-[#15d8b3] hover:opacity-90 text-white shadow-lg shadow-[#2f39a9]/25 font-semibold text-base h-11"
+          >
             {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Save Settings
           </Button>

@@ -22,8 +22,8 @@ export default async function SettingsPage() {
   return (
     <div className="max-w-3xl mx-auto space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Account Settings</h1>
-        <p className="text-slate-500">Manage your profile and account preferences</p>
+        <h1 className="text-3xl font-bold tracking-tight text-white">Account Settings</h1>
+        <p className="text-slate-400 mt-1">Manage your profile and account preferences</p>
       </div>
 
       <ProfileForm 
@@ -32,9 +32,9 @@ export default async function SettingsPage() {
         } : undefined}
       />
 
-      <div className="bg-white p-6 rounded-xl border border-slate-200">
-        <h3 className="text-sm font-medium text-slate-900 mb-2">Email Address</h3>
-        <p className="text-sm text-slate-500 bg-slate-50 p-2.5 rounded-md border border-slate-200 w-fit">
+      <div className="bg-[#0c1222]/90 backdrop-blur p-6 rounded-xl border border-slate-800 shadow-xl">
+        <h3 className="text-sm font-semibold text-slate-200 mb-2">Email Address</h3>
+        <p className="text-sm text-[#15d8b3] bg-slate-900/60 p-2.5 rounded-md border border-slate-800 font-mono w-fit">
           {user.email}
         </p>
         <p className="text-xs text-slate-400 mt-2">
@@ -42,13 +42,13 @@ export default async function SettingsPage() {
         </p>
       </div>
 
-      <div className="bg-red-50 p-6 rounded-xl border border-red-100">
-        <h2 className="text-lg font-semibold text-red-900 mb-2">Danger Zone</h2>
-        <p className="text-sm text-red-700 mb-4">
+      <div className="bg-rose-950/20 p-6 rounded-xl border border-rose-900/30">
+        <h2 className="text-lg font-semibold text-rose-300 mb-2">Danger Zone</h2>
+        <p className="text-sm text-rose-300/80 mb-4">
           Need to delete your account or wipe your data? You can manage your account directly via Supabase Auth.
         </p>
         <button 
-          className="text-sm font-medium text-red-600 border border-red-200 bg-white px-4 py-2 rounded-md opacity-60 cursor-not-allowed"
+          className="text-sm font-medium text-rose-400 border border-rose-800 bg-rose-950/40 px-4 py-2 rounded-md opacity-60 cursor-not-allowed"
           disabled
         >
           Delete Account (Contact Support)

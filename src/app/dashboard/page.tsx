@@ -59,8 +59,8 @@ export default async function DashboardPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-2xl font-bold text-slate-900">Dashboard</h1>
-        <p className="text-slate-500">Your personalized study command center</p>
+        <h1 className="text-3xl font-bold tracking-tight text-white">Dashboard</h1>
+        <p className="text-slate-400 mt-1">Your personalized study command center</p>
       </div>
       
       <DailySummary 
