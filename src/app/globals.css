@@ -4,48 +4,49 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
-    --foreground: 236 56% 25%;
-    --card: 0 0% 100%;
-    --card-foreground: 236 56% 25%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 236 56% 25%;
+    --background: 228 55% 6%;
+    --foreground: 210 40% 98%;
+    --card: 228 45% 9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 228 45% 9%;
+    --popover-foreground: 210 40% 98%;
     /* Primary deep cobalt: #2f39a9 */
-    --primary: 235 56% 42%;
+    --primary: 235 56% 55%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 205 55% 94%;
-    --secondary-foreground: 235 56% 25%;
-    --muted: 205 40% 95%;
-    --muted-foreground: 205 30% 45%;
+    --secondary: 228 35% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 228 30% 14%;
+    --muted-foreground: 215 20% 65%;
     /* Accent vibrant turquoise: #15d8b3 */
     --accent: 169 82% 46%;
-    --accent-foreground: 235 56% 15%;
-    --destructive: 0 84.2% 60.2%;
+    --accent-foreground: 228 55% 6%;
+    --destructive: 0 62.8% 50.6%;
     --destructive-foreground: 0 0% 100%;
-    --border: 205 35% 89%;
-    --input: 205 35% 89%;
-    --ring: 235 56% 42%;
+    --border: 228 30% 18%;
+    --input: 228 30% 18%;
+    --ring: 169 82% 46%;
     --radius: 0.75rem;
-    --chart-1: 235 56% 42%;
-    --chart-2: 205 55% 40%;
+    --chart-1: 235 56% 55%;
+    --chart-2: 205 55% 45%;
     --chart-3: 193 44% 51%;
     --chart-4: 169 82% 46%;
-    --chart-5: 236 56% 25%;
+    --chart-5: 236 56% 35%;
   }
 }
 
 /* 
   Native Hardware-Accelerated Circular "SS" Cursor 
   Calibrated to your Oceanic Blue-Teal Brand Palette
+  Outer orbit ring removed, inner circle and SS enlarged as requested
 */
 
-/* Default State: Cobalt blue circle with bright teal dashed orbit ring and centered white SS */
+/* Default State: Expanded Cobalt blue circle with crisp white border and large white SS */
 html,
 body {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%2315d8b3' stroke-width='1.5' stroke-dasharray='4,3' opacity='0.8'/%3E%3Ccircle cx='16' cy='16' r='10' fill='%232f39a9' stroke='%23ffffff' stroke-width='1.5'/%3E%3Ctext x='16' y='19.5' fill='%23ffffff' font-family='system-ui, -apple-system, sans-serif' font-size='9' font-weight='900' text-anchor='middle' letter-spacing='-0.5'%3ESS%3C/text%3E%3C/svg%3E") 16 16, auto;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%232f39a9' stroke='%23ffffff' stroke-width='1.75'/%3E%3Ctext x='16' y='20.5' fill='%23ffffff' font-family='system-ui, -apple-system, sans-serif' font-size='12' font-weight='900' text-anchor='middle' letter-spacing='-0.5'%3ESS%3C/text%3E%3C/svg%3E") 16 16, auto;
 }
 
-/* Hover / Pointer State: Expanded glowing ocean teal/cobalt circle with active aura ring */
+/* Hover / Pointer State: Glowing Ocean/Teal Circle with bright teal accent border and large SS */
 a,
 button,
 [role="button"],
@@ -53,7 +54,7 @@ input[type="submit"],
 input[type="button"],
 select,
 summary {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%2315d8b3' fill-opacity='0.25' stroke='%2315d8b3' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='11' fill='%2320297f' stroke='%23ffffff' stroke-width='2'/%3E%3Ctext x='16' y='20' fill='%23ffffff' font-family='system-ui, -apple-system, sans-serif' font-size='10' font-weight='900' text-anchor='middle' letter-spacing='-0.5'%3ESS%3C/text%3E%3C/svg%3E") 16 16, pointer;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14.5' fill='%232e6fa0' stroke='%2315d8b3' stroke-width='2'/%3E%3Ctext x='16' y='20.5' fill='%23ffffff' font-family='system-ui, -apple-system, sans-serif' font-size='12' font-weight='900' text-anchor='middle' letter-spacing='-0.5'%3ESS%3C/text%3E%3C/svg%3E") 16 16, pointer;
 }
 
 /* Typing / Input State: Keep clean text caret */
@@ -61,8 +62,55 @@ input[type="text"],
 input[type="email"],
 input[type="password"],
 input[type="number"],
+input[type="date"],
 textarea {
   cursor: text;
+}
+
+/* Ambient Floating Background Keyframe Animations */
+@keyframes bg-float-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(40px, -60px) scale(1.15);
+  }
+  66% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+}
+
+@keyframes bg-float-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(-50px, 40px) scale(1.2);
+  }
+  66% {
+    transform: translate(30px, -40px) scale(0.9);
+  }
+}
+
+@keyframes bg-float-3 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, 50px) scale(1.1);
+  }
+}
+
+.animate-bg-float-1 {
+  animation: bg-float-1 20s ease-in-out infinite;
+}
+
+.animate-bg-float-2 {
+  animation: bg-float-2 25s ease-in-out infinite;
+}
+
+.animate-bg-float-3 {
+  animation: bg-float-3 22s ease-in-out infinite;
 }
 
 @layer base {

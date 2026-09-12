@@ -14,15 +14,15 @@ interface EmptyStateProps {
 
 export function EmptyState({ icon: Icon, title, description, action }: EmptyStateProps) {
   return (
-    <div className="flex flex-col items-center justify-center py-16 px-4 text-center border-2 border-dashed border-slate-200 rounded-xl bg-slate-50">
-      <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 shadow-sm border border-slate-100">
-        <Icon className="w-8 h-8 text-slate-400" />
+    <div className="flex flex-col items-center justify-center py-16 px-4 text-center border-2 border-dashed border-slate-800/80 rounded-2xl bg-[#0c1229]/60 backdrop-blur-sm">
+      <div className="w-16 h-16 bg-slate-900/90 rounded-2xl flex items-center justify-center mb-4 shadow-lg border border-slate-700/60 ring-4 ring-[#2f39a9]/20">
+        <Icon className="w-8 h-8 text-[#15d8b3]" />
       </div>
-      <h3 className="text-xl font-semibold text-slate-900 mb-2">{title}</h3>
-      <p className="text-slate-500 max-w-md mx-auto mb-6">{description}</p>
+      <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+      <p className="text-slate-400 max-w-md mx-auto mb-6 leading-relaxed">{description}</p>
       
       {action && (
-        <Button asChild className="bg-violet-600 hover:bg-violet-700">
+        <Button asChild className="bg-gradient-to-r from-[#2f39a9] via-[#2e6fa0] to-[#15d8b3] text-white hover:opacity-90 shadow-md shadow-[#2f39a9]/30 font-semibold px-6">
           <Link href={action.href}>
             {action.label}
           </Link>

@@ -40,19 +40,19 @@ export default function PlansClient({ initialPlans }: { initialPlans: StudyPlan[
         const isExpanded = expandedId === plan.id
 
         return (
-          <div key={plan.id} className="bg-white rounded-xl border border-slate-200 overflow-hidden">
+          <div key={plan.id} className="bg-[#0c1229]/80 backdrop-blur-sm rounded-2xl border border-slate-800/80 overflow-hidden shadow-lg shadow-black/10 transition-all hover:border-slate-700/80">
             <div 
-              className="p-4 flex items-center justify-between cursor-pointer hover:bg-slate-50"
+              className="p-4 flex items-center justify-between cursor-pointer hover:bg-slate-800/30 transition-colors"
               onClick={() => toggleExpand(plan.id)}
             >
               <div className="flex items-center space-x-4">
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl ${phaseInfo.bgColor} ${phaseInfo.color}`}>
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center text-xl shadow-inner ${phaseInfo.bgColor} ${phaseInfo.color}`}>
                   {phaseInfo.emoji}
                 </div>
                 <div>
-                  <h3 className="font-semibold text-slate-900">{new Date(plan.planDate).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h3>
-                  <div className="flex items-center space-x-3 text-sm text-slate-500 mt-1">
-                    <span className="font-medium text-slate-700">{phaseInfo.label} Phase (Day {plan.cycleDay})</span>
+                  <h3 className="font-semibold text-white">{new Date(plan.planDate).toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</h3>
+                  <div className="flex items-center space-x-3 text-sm text-slate-400 mt-1">
+                    <span className="font-medium text-[#15d8b3]">{phaseInfo.label} Phase (Day {plan.cycleDay})</span>
                     <span>•</span>
                     <span>{plan.tasks.length} tasks</span>
                   </div>
@@ -63,42 +63,42 @@ export default function PlansClient({ initialPlans }: { initialPlans: StudyPlan[
                   variant="ghost" 
                   size="icon" 
                   onClick={(e) => { e.stopPropagation(); handleDelete(plan.id); }}
-                  className="text-slate-400 hover:text-red-500"
+                  className="text-slate-400 hover:text-rose-400 hover:bg-rose-950/30"
                 >
                   <Trash2 className="w-4 h-4" />
                 </Button>
                 <div className="text-slate-400">
-                  {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+                  {isExpanded ? <ChevronUp className="w-5 h-5 text-[#15d8b3]" /> : <ChevronDown className="w-5 h-5" />}
                 </div>
               </div>
             </div>
 
             {isExpanded && (
-              <div className="p-4 border-t border-slate-100 bg-slate-50">
+              <div className="p-4 border-t border-slate-800/80 bg-slate-950/40">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                  <div className="bg-white p-3 rounded-lg border border-slate-200">
-                    <h4 className="text-xs font-semibold uppercase text-slate-500 mb-1">Study Method</h4>
-                    <p className="text-sm font-medium">{plan.studyMethod}</p>
+                  <div className="bg-[#0c1229] p-3.5 rounded-xl border border-slate-800/80">
+                    <h4 className="text-xs font-semibold uppercase text-slate-400 mb-1">Study Method</h4>
+                    <p className="text-sm font-medium text-white">{plan.studyMethod}</p>
                   </div>
-                  <div className="bg-white p-3 rounded-lg border border-slate-200">
-                    <h4 className="text-xs font-semibold uppercase text-slate-500 mb-1">Pomodoro Timer</h4>
-                    <p className="text-sm font-medium">{plan.focusDuration}min focus / {plan.breakDuration}min break</p>
+                  <div className="bg-[#0c1229] p-3.5 rounded-xl border border-slate-800/80">
+                    <h4 className="text-xs font-semibold uppercase text-slate-400 mb-1">Pomodoro Timer</h4>
+                    <p className="text-sm font-medium text-[#15d8b3]">{plan.focusDuration}min focus / {plan.breakDuration}min break</p>
                   </div>
                 </div>
                 
-                <h4 className="text-sm font-semibold mb-2">Tasks</h4>
+                <h4 className="text-sm font-semibold text-white mb-2">Tasks</h4>
                 <ul className="space-y-2">
                   {plan.tasks.map((task, idx) => (
-                    <li key={idx} className="bg-white p-3 rounded-lg border border-slate-200 flex justify-between items-center">
+                    <li key={idx} className="bg-[#0c1229] p-3.5 rounded-xl border border-slate-800/80 flex justify-between items-center">
                       <div>
-                        <span className="font-medium text-sm">{task.subject}:</span> <span className="text-sm text-slate-600">{task.task}</span>
+                        <span className="font-semibold text-sm text-[#49a4bb]">{task.subject}:</span> <span className="text-sm text-slate-300 ml-1">{task.task}</span>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <span className="text-xs text-slate-500">{task.estimatedMinutes}m</span>
-                        <span className={`text-[10px] uppercase font-bold px-1.5 py-0.5 rounded-full ${
-                          task.priority === 'high' ? 'bg-red-100 text-red-700' : 
-                          task.priority === 'medium' ? 'bg-yellow-100 text-yellow-700' : 
-                          'bg-green-100 text-green-700'
+                        <span className="text-xs text-slate-400">{task.estimatedMinutes}m</span>
+                        <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded-full border ${
+                          task.priority === 'high' ? 'bg-rose-950/40 text-rose-300 border-rose-800/50' : 
+                          task.priority === 'medium' ? 'bg-amber-950/40 text-amber-300 border-amber-800/50' : 
+                          'bg-teal-950/40 text-[#15d8b3] border-teal-800/50'
                         }`}>
                           {task.priority}
                         </span>
